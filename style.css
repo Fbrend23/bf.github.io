@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root{
+    --black: #0e0e10; 
+    --gray: #123244;
+    --darkblue: #146483; 
+    --blue: #1fa0cc; 
+    --white: #eeeeee;   
+}
+
+* {
+    /* background-color: var(--black); */
+    color: var(--white);
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+
+
+a{
+    font-family: "Caveat",sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.navigation a.active{
+    text-decoration: underline;
+}
+
+
+.site-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column row;
+    padding: 2px 1.5rem; 
+    background-color: rgba(0, 0, 0, 0.253);
+    /* outline: 1px solid var(--white) ; */
+    border: 1px var(--white);
+    border-style: none none solid none;
+}
+
+.logo{
+    cursor: pointer;
+    width: 50px;
+    
+}
+
+.main-list{
+    list-style: none; 
+}
+
+.main-list li{
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.main-list li a{
+    transition: all 0.6s;
+}
+
+.main-list li a:hover{
+   font-size: 1.5em;
+   color: var(--blue)
+}
+
+button{
+    background-color: var(--blue);
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 5px 10px;
+    border: none;
+    transition: all 0.3s;
+}
+
+button:hover{
+    background-color: rgba(0, 146, 204, 0.8);
+    
+}
+
+
+
+
+
+
+body{
+    background-color: var(--gray);
+    width: inherit
+}
+
+.wallpaper{
+    background: url(images/DSC00358-3.jpg) center no-repeat;
+    background-size: cover;
+    height: 100vh;
+    /* background-position: bottom; */
+}
+
+@media only screen and (max-width:400px){
+    .wallpaper{
+        background-position-x: -650px;
+    }
+}
+@media only screen and (max-width:600px){
+    .wallpaper{
+        background-position-x: -750px;
+    }
+}
+
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 500px; 
+
+}
+
+
+h2{
+    text-align: center;
+    font-family: "Caveat", sans-serif;
+    font-size: 5em;
+    margin: 2rem 0;
+    
+}
+
+
+.col{
+    width: 30%;
+    margin: 0 30px;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+ .col1 button{
+    background-color: rgb(255, 255, 255, 0);
+    border: 1px solid var(--white);
+
+ }
