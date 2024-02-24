@@ -129,7 +129,7 @@ h2{
 
 
 
-/* Gallerie v1 */
+/*------- Gallerie v1 -------*/
 
  /* .portfolio{
     display: flex;
@@ -158,14 +158,15 @@ h2{
     margin: auto;
  } */
 
-/* Gallerie v2 */
+
+/*------- Gallerie v2 -------*/
 
 .portfolio{
     display: flex;
     flex-flow: wrap row;
     justify-content: center;
     align-items: center;
-    margin: 50px 0 0 0
+    margin: 20px 0 0 0
     
 }
 
@@ -194,3 +195,20 @@ h2{
         width: 20vh;
     }
 }
+
+#category{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+    width: 100%;
+    margin: 20px auto 0px;
+}
+
+#category > .btn{
+    margin: 5px 5px ;
+}
+
+.btn.selected{
+    background-color: rgba(0, 146, 204, 0.8);
+}
+
