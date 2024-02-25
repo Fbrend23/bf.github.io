@@ -1,5 +1,5 @@
 const filterButton = document.querySelectorAll(".btn");
-const galleryItems = document.querySelectorAll(".item");
+const galleryItems = document.querySelectorAll(".container-img");
 
 
 filterButton.forEach(button => {
@@ -12,16 +12,37 @@ filterButton.forEach(button => {
         });
             button.classList.add("selected");
 
-
 // Filtrer
         galleryItems.forEach(item => {
             if (filterValue === "all" || item.classList.contains(filterValue)){
-                item.style.display = "flex";
+                item.classList.remove("hidden");
             } 
             else{
-                item.style.display = "none";
+                item.classList.add("hidden");
+                
             }
         })
     })
 })
 
+
+const galleryImg = document.querySelectorAll(".container-img > img")
+
+galleryImg.forEach(img =>{
+    img.addEventListener("click", toggleFullScreen);
+});
+
+// Fonction pour afficher l'image en plein écran
+function toggleFullScreen() {
+    const elem = this; 
+    if (!document.fullscreenElement) {
+        
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}

@@ -35,7 +35,6 @@ a{
     flex-flow: column row;
     padding: 2px 1.5rem; 
     background-color: rgba(0, 0, 0, 0.253);
-    /* outline: 1px solid var(--white) ; */
     border: 1px var(--white);
     border-style: none none solid none;
 }
@@ -82,17 +81,15 @@ button:hover{
 
 body{
     background-color: var(--black);
-    width: inherit
+    width: inherit;
+    transition: opacity 0.5s ease;
 }
 
 .accueil{
-    background: url(images/DSC00358-3.jpg) center no-repeat;
+    background: url(images/DSC00358.jpg) center no-repeat;
     background-size: cover;
-    height: 100vh;
-    /* background-position: bottom; */
+    height: 100svh;
 }
-
-
 
 .container{
     display: flex;
@@ -127,39 +124,7 @@ h2{
  }
 
 
-
-
-/*------- Gallerie v1 -------*/
-
- /* .portfolio{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
- }
-
- .card{
-    display: flex;
-    flex-flow: column;
-    margin: 50px 100px 10px;
-    background-color:var(--gray);
-    width: 300px;
-    height: 220px;
-   
- }
- .bg-image{
-    height: auto;
-    width: 100%;
- }
-
- .card-body{
-    text-align: center;
-    justify-self: center;
-    align-self: center;
-    margin: auto;
- } */
-
-
-/*------- Gallerie v2 -------*/
+/*------- Gallerie -------*/
 
 .portfolio{
     display: flex;
@@ -169,7 +134,10 @@ h2{
     margin: 20px 0 0 0
     
 }
-
+.container-img{
+    transition: all 0.5s ease;
+    opacity: 1;
+}
 
 .container-img > img{
     width: 40vh;
@@ -177,13 +145,21 @@ h2{
     margin: 4px 6px;
 }
 
-
+.hidden{
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 0;
+}
+/* -----------------Wallpaper de l'accueil pour voir le martin pêcheur----------- */
 @media only screen and (max-width:400px){
     .accueil{
         background-position-x: -650px;
     }
     .container-img > img{
-        width: 20vh;
+        width: 20svh;
     }
 }
 
@@ -192,9 +168,10 @@ h2{
         background-position-x: -750px;
     }
     .container-img > img{
-        width: 20vh;
+        width: 20svh;
     }
 }
+/* ----------------------------------- */
 
 #category{
     display: flex;
@@ -210,5 +187,6 @@ h2{
 
 .btn.selected{
     background-color: rgba(0, 146, 204, 0.8);
+    font-weight: bold;
 }
 
