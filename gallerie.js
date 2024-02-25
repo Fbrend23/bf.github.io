@@ -27,22 +27,25 @@ filterButton.forEach(button => {
 
 
 const galleryImg = document.querySelectorAll(".container-img > img")
+const modal = document.getElementById("myModal")
+const span = document.getElementsByClassName("close")[0]
 
-galleryImg.forEach(img =>{
-    img.addEventListener("click", toggleFullScreen);
+// Récupération des images
+galleryImg.forEach(img => {
+    img.addEventListener("click", function() {
+        modal.style.display = "block";
+        document.getElementById("modalImage").src = this.src;
+    });
 });
 
-// Fonction pour afficher l'image en plein écran
-function toggleFullScreen() {
-    const elem = this; 
-    if (!document.fullscreenElement) {
-        
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        }
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
+// Fermer le modal 
+span.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+// Fermer le modal lorsque l'utilisateur clique en dehors de celui-ci
+window.addEventListener("click", function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
-}
+});
