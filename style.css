@@ -6,11 +6,18 @@
     --gray: #123244;
     --darkblue: #146483; 
     --blue: #1fa0cc; 
-    --white: #eeeeee;   
+    --white: #eeeeee;
+
+    --background: #fffffe;
+    --headline: #094067;
+    --paragraphe: #5f6c7b;
+    --button: #3da9fc;
+    --highlight: #3da9fc;
+
 }
 
 * {
-    /* background-color: var(--black); */
+    /* background-color: var(--background); */
     color: var(--white);
     margin: 0; 
     padding: 0;
@@ -30,19 +37,19 @@ a{
 
 .site-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-flow: column row;
     padding: 2px 1.5rem; 
-    background-color: rgba(0, 0, 0, 0.253);
-    border: 1px var(--white);
-    border-style: none none solid none;
+    /* background-color: var(--headline); */
+    /* border: 1px var(--white); */
+    /* border-style: none none solid none; */
 }
 
 .logo{
     cursor: pointer;
     width: 50px;
-    
+    margin-right: 100px ;
 }
 
 .main-list{
@@ -80,36 +87,49 @@ button:hover{
 /* body */
 
 body{
-    background-color: var(--black);
+    background-color: var(--background);
     width: inherit;
     transition: opacity 0.5s ease;
 }
 
-.accueil{
-    background: url(images/DSC00358.jpg) center no-repeat;
+
+.content{
+    margin: 0;
+    padding: 0;
+    background-image: url("images/DSC01060.jpg");
+    background-position: center;
     background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     height: 100svh;
+    overflow-y: auto;
 }
 
 .container{
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
     align-items: center;
     height: 500px; 
+    margin: auto 20em;
 
 }
-
+.main-page{
+    flex-grow: 1;
+}
 
 h2{
-    text-align: center;
-    font-family: "Caveat", sans-serif;
-    font-size: 5em;
-    margin: 2rem 0;
-    
+    border-bottom: rgba(255, 255, 255, 0.6) solid 1px;
+    padding-bottom: 20px;
+    font-family: "Caveat",sans-serif;
+    font-size: 5rem;
 }
 
-
+h1{
+   margin-top: 20px;
+   color: rgb(255, 255, 255);
+   font-family: "Caveat",sans-serif;
+   font-size: 2rem;
+}
 .col{
     width: 30%;
     margin: 0 30px;
@@ -126,23 +146,30 @@ h2{
 
 /*------- Gallerie -------*/
 
+
 .portfolio{
     display: flex;
     flex-flow: wrap row;
     justify-content: center;
     align-items: center;
-    margin: 20px 0 0 0
+    margin: 20px 0 0 0;
+
     
 }
 .container-img{
     transition: all 0.5s ease;
     opacity: 1;
+    position: relative;
+    margin: 4px 4px;
 }
 
 .container-img > img{
-    width: 40vh;
+    background-color: rgb(0, 0, 0);
+    width: 50vh;
     height: auto;
-    margin: 4px 6px;
+    cursor: pointer;
+    /* display: inline-block; */
+    
 }
 
 .hidden{
@@ -153,26 +180,18 @@ h2{
     overflow: hidden;
     width: 0;
 }
-/* -----------------Wallpaper de l'accueil pour voir le martin pêcheur----------- */
-@media only screen and (max-width:400px){
-    .accueil{
-        background-position-x: -650px;
-    }
-    .container-img > img{
-        width: 20svh;
-    }
-}
-
-@media only screen and (max-width:600px){
-    .accueil{
+/* -----------------Mobile----------- */
+/* @media only screen and (max-width:400px){
+    .content{
         background-position-x: -750px;
     }
     .container-img > img{
         width: 20svh;
     }
-}
-/* ----------------------------------- */
+} */
 
+/* ----------------------------------- */
+/* Boutons de sélection de catégorie */
 #category{
     display: flex;
     flex-flow: wrap row;
@@ -189,12 +208,13 @@ h2{
     background-color: rgba(0, 146, 204, 0.8);
     font-weight: bold;
 }
+/* ----------------------------------------- */
 
-/* Style pour le modal */
+/* -------------------Style pour le modal------------------- */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
     padding-top: 50px;
     left: 0;
     top: 0;
@@ -208,7 +228,21 @@ h2{
     margin: auto;
     display: block;
     max-width: 80%;
-    max-height: 80%;
+}
+.next, .previous{
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    font-size: 40px;
+    user-select: none;
+    font-weight: bold;
+}
+
+.next{
+    right: 60px;
+}
+.previous{
+    left: 60px;
 }
 
 .close {
@@ -219,11 +253,26 @@ h2{
     font-size: 35px;
     font-weight: bold;
     cursor: pointer;
+    user-select: none;
 }
 
 .close:hover,
 .close:focus {
-    color: #bbb;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     cursor: pointer;
+}
+/* ----------------------------------------------------------- */
+.description{
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(rgb(0, 0, 0, 0.2), rgba(0, 0, 0, 00.8));
+    padding: 10px 0px;
+    opacity: 00;
+}
+
+.container-img:hover .description{
+    opacity: 1;
 }

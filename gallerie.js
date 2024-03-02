@@ -26,24 +26,46 @@ filterButton.forEach(button => {
 })
 
 
-const galleryImg = document.querySelectorAll(".container-img > img")
-const modal = document.getElementById("myModal")
-const span = document.getElementsByClassName("close")[0]
+const galleryImg = document.querySelectorAll(".container-img > img");
+const modal = document.getElementById("myModal");
 
-// Récupération des images
-galleryImg.forEach(img => {
+galleryImg.forEach((img, currentIndex) => {
     img.addEventListener("click", function() {
         modal.style.display = "block";
         document.getElementById("modalImage").src = this.src;
+        modal.setAttribute("data-current-index", currentIndex);
     });
 });
+
+const prev = document.getElementsByClassName("previous")[0];
+const next = document.getElementsByClassName("next")[0];
+
+prev.addEventListener("click", function() {
+    let currentIndex = parseInt(modal.getAttribute("data-current-index"));
+    if (currentIndex > 0) {
+        currentIndex--;
+        document.getElementById("modalImage").src = galleryImg[currentIndex].src;
+        modal.setAttribute("data-current-index", currentIndex);
+    }
+});
+
+next.addEventListener("click", function() {
+    let currentIndex = parseInt(modal.getAttribute("data-current-index"));
+    if (currentIndex < galleryImg.length - 1) {
+        currentIndex++;
+        document.getElementById("modalImage").src = galleryImg[currentIndex].src;
+        modal.setAttribute("data-current-index", currentIndex);
+    }
+});
+
+const span = document.getElementsByClassName("close")[0];
 
 // Fermer le modal 
 span.addEventListener("click", function() {
     modal.style.display = "none";
 });
 
-// Fermer le modal lorsque l'utilisateur clique en dehors de celui-ci
+// Fermer le modal lorsque l'utilisateur clique en dehors
 window.addEventListener("click", function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
