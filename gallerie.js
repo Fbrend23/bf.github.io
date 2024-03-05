@@ -65,9 +65,12 @@ span.addEventListener("click", function() {
     modal.style.display = "none";
 });
 
-// Fermer le modal lorsque l'utilisateur clique en dehors
+// Fermer le modal quand l'utilisateur clique en dehors
 window.addEventListener("click", function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 });
+
+
+ 
