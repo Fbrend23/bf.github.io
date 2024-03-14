@@ -280,13 +280,37 @@ h1{
     opacity: 1;
 }
 
-
-/* -----Nav mobile----- */
-/* @media screen and (max-width: 600px){ */
-    .menu-toggle{
-        
-    /* display: none; */
-    border: none;
-
+.bar{
+    width:26px;
+    height: 2px;
+    background-color: #fff;
 }
-/* } */
+
+.bar1, .bar2, .bar3{
+    margin:4px 0;
+    height: 3px;
+    width: 20px;
+    background-color: #fff;
+    transition: all 0.3s;
+    
+}
+
+#hamburger{
+    position: absolute;
+    height: 16px;
+    top: 16px;
+    right: 25px;
+    cursor: pointer;
+}
+
+.bar1.click {
+    transform: translateY(7px) rotate(-45deg);
+}
+
+.click.bar2{
+    opacity: 0;
+}
+
+.click.bar3{
+    transform: translateY(-7px) rotate(45deg);
+}
