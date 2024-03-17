@@ -31,7 +31,7 @@ const modal = document.getElementById("myModal");
 
 galleryImg.forEach((img, currentIndex) => {
     img.addEventListener("click", function() {
-        modal.style.display = "block";
+        modal.style.display = "flex";
         document.getElementById("modalImage").src = this.src;
         modal.setAttribute("data-current-index", currentIndex);
     });
