@@ -30,25 +30,27 @@ a{
     text-decoration: none;
 }
 
+.navigation{
+    display: flex;
+}
+
 .navigation a.active{
     text-decoration: underline;
 }
 
 .site-header{
     display: flex;
-    justify-content: center;
+    justify-content:space-between ;
     align-items: center;
     flex-flow: column row;
-    padding: 2px 1.5rem; 
-    /* background-color: var(--headline); */
-    /* border: 1px var(--white); */
-    /* border-style: none none solid none; */
+    padding: 2px 1.5rem;
+    margin-top: 5px;
 }
 
 .logo{
     cursor: pointer;
     width: 50px;
-    margin-right: 100px ;
+    margin-right: 10px ;
 }
 
 .main-list{
@@ -57,18 +59,22 @@ a{
 
 .main-list li{
     display: inline-block;
-    padding: 0 5px;
+    margin: 0 10px;
 }
 
 .main-list li a{
     transition: all 0.6s;
+    font-size: 1.5em;
 }
 
-.main-list li a:hover{
-   font-size: 1.5em;
+.main-list li a:hover:not(.no-hover){
+   font-size: 1.8em;
    color: var(--blue)
 }
 
+li{
+    height: 31px;
+}
 button{
     background-color: rgb(0, 0, 0, 0.0);
     cursor: pointer;
@@ -76,15 +82,22 @@ button{
     border: 1px solid;
     transition: all 0.3s;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
 }
 
 button:hover{
-    background-color: rgba(0, 146, 204, 0.8);
-    
+    background-color: rgba(0, 146, 204, 0.8);  
 }
 
+.contact{
+    display: inherit;
+    margin: 0px;
 
+}
+.contact > button{
+    margin: 0px;
+    padding: 5px 10px;
+    height: auto;
+}
 
 /* body */
 
@@ -117,7 +130,6 @@ body{
     width: 80%; 
     margin: 100px auto;
 }
-
 
 h2{
     border-bottom: rgba(255, 255, 255, 0.6) solid 1px;
@@ -152,6 +164,11 @@ h1{
     color: rgb(0, 0, 0);
    
 }
+
+
+#hamburger{
+    display: none;
+}
 /*------- Gallerie -------*/
 
 
@@ -173,11 +190,9 @@ h1{
 
 .container-img > img{
     background-color: rgb(0, 0, 0);
-    width: 50vh;
+    width: 50svh;
     height: auto;
-    cursor: pointer;
-    /* display: inline-block; */
-    
+    cursor: pointer;    
 }
 
 .hidden{
@@ -195,8 +210,8 @@ h1{
     display: flex;
     flex-flow: wrap row;
     justify-content: center;
-    width: 100%;
-    margin: 20px auto 0px;
+    width: 90%;
+    margin: 80px auto 0px;
 }
 
 #category > .btn{
@@ -207,6 +222,7 @@ h1{
     background-color: rgba(0, 146, 204, 0.8);
     font-weight: bold;
 }
+
 /* ----------------------------------------- */
 
 /* -------------------Style pour le modal------------------- */
@@ -262,7 +278,7 @@ h1{
     text-decoration: none;
     cursor: pointer;
 }
-/* ----------------------------------------------------------- */
+
 .description{
     position: absolute;
     bottom: 4px;
@@ -280,31 +296,33 @@ h1{
     opacity: 1;
 }
 
-.bar{
-    width:26px;
-    height: 2px;
-    background-color: #fff;
-}
+
+
+/* ----------------------Mobile-------------------------- */
+@media screen and (max-width: 768px){
+
 
 .bar1, .bar2, .bar3{
-    margin:4px 0;
-    height: 3px;
-    width: 20px;
+    margin:5px 0;
+    height: 4px;
+    width: 25px;
     background-color: #fff;
-    transition: all 0.3s;
-    
+    transition: all 0.3s;   
 }
 
 #hamburger{
+    display: inline;
     position: absolute;
-    height: 16px;
-    top: 16px;
+    height: auto;
+    width: auto;
+    top: 20px;
     right: 25px;
     cursor: pointer;
+    z-index: 110;
 }
 
 .bar1.click {
-    transform: translateY(7px) rotate(-45deg);
+    transform: translateY(9px) rotate(-45deg);
 }
 
 .click.bar2{
@@ -312,5 +330,76 @@ h1{
 }
 
 .click.bar3{
-    transform: translateY(-7px) rotate(45deg);
+    transform: translateY(-9px) rotate(45deg);
+}
+
+.content.click{
+    background-color: rgb(9, 9, 9);
+}
+
+.logo.mobile{
+    margin: 0px ;
+}
+
+header > a{
+    position: absolute;
+    width: 50px;
+    height: auto;
+    top: 8px;
+    left: 15px;
+    cursor: pointer;
+    z-index: 110;
+}
+.main-list{
+    font-size: 2em;
+}
+li{
+    height: auto;
+}
+.main-list li a:hover{
+    font-size: 1.2em;
+    color: var(--blue)
+ }
+ .navigation{
+    display: none;
+ }
+ .contact > button{
+   margin: 50px auto;
+   padding: 10px 20px;
+   font-size: 0.5em;
+ }
+
+
+/* Gallerie mobile */
+
+ .container-img > img{
+    background-color: rgb(0, 0, 0);
+    width: 40svh;
+    height: auto;
+    cursor: pointer;    
+}
+}
+
+
+.navigation.mobile{
+    display: initial;
+}
+.nav-container.mobile{
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+}
+.main-list.mobile{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    margin-top: 100px;
 }

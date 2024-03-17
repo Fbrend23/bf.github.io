@@ -9,9 +9,15 @@ document.addEventListener("DOMContentLoaded", function(){
 
 const menu = document.getElementById("hamburger");
 const bar = document.querySelectorAll(".bar1, .bar2, .bar3");
+const nav = document.querySelectorAll(".nav-container, .main-list, .navigation");
 
-bar.forEach(function(bar){
 menu.addEventListener("click", function() {
-    bar.classList.toggle("click");
+    bar.forEach(function(bar){
+        bar.classList.toggle("click");
+    });
+    menu.classList.toggle("click");
+
+    nav.forEach(function(nav){
+        nav.classList.toggle("mobile");
+    });
 })
-});
