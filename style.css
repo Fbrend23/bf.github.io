@@ -389,7 +389,8 @@ li{
     left: 8svh;
     top: 70%;
 }
-
+.description{
+ display: none;
 }
 /* ----- Fin media ------- */
 
