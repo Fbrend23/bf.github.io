@@ -303,8 +303,6 @@ h1{
 
 /* ----------------------Mobile-------------------------- */
 @media screen and (max-width: 768px){
-
-
 .bar1, .bar2, .bar3{
     margin:5px 0;
     height: 4px;
@@ -391,6 +389,7 @@ li{
 }
 .description{
  display: none;
+}
 }
 /* ----- Fin media ------- */
 
